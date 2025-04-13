@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HoleEntity
+  m_EditorClassIdentifier: 
+  m_GroupName: HoleEntity
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 1cfd06cccdc25f643893ebf4584d6154
+  m_SerializeEntries:
+  - m_GUID: 19784e360486dee4aa3ef1e668dcc217
+    m_Address: HoleEntity_BigHole
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b50f1a27689ab834fa1c1910875d7a3f
+    m_Address: HoleEntity_SmallHole
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7698bf1a807b9fc4480d55df3bf29ef2, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0eed4540c685df547a575728b5801bd0, type: 2}
+    - {fileID: 11400000, guid: 69114aa8b9099cb418b30e8cfd481b30, type: 2}
