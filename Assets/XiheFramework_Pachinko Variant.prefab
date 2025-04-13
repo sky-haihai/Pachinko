@@ -25,7 +25,17 @@ PrefabInstance:
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
         type: 3}
       propertyPath: configSettings.Array.data[0].path
-      value: GameLoop.MainGameState.holeCount
+      value: Hole.HoleModule.holeCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
+        type: 3}
+      propertyPath: configSettings.Array.data[1].path
+      value: Hole.HoleModule.holePositions
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
+        type: 3}
+      propertyPath: configSettings.Array.data[1].type
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
         type: 3}
@@ -35,11 +45,16 @@ PrefabInstance:
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
         type: 3}
       propertyPath: configSettings.Array.data[0].stringValue
-      value: 5
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
         type: 3}
       propertyPath: configSettings.Array.data[0].animationCurveValue.m_PreInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
+        type: 3}
+      propertyPath: configSettings.Array.data[1].animationCurveValue.m_PreInfinity
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
@@ -49,7 +64,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
         type: 3}
+      propertyPath: configSettings.Array.data[1].animationCurveValue.m_PostInfinity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
+        type: 3}
       propertyPath: configSettings.Array.data[0].animationCurveValue.m_RotationOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420987691133622626, guid: be84258d158bbdc479c6a894a2aac14f,
+        type: 3}
+      propertyPath: configSettings.Array.data[1].animationCurveValue.m_RotationOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8541038474150945594, guid: be84258d158bbdc479c6a894a2aac14f,

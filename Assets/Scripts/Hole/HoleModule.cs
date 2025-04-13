@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GameConstant;
 using UnityEngine;
@@ -7,20 +8,27 @@ using XiheFramework.Runtime;
 
 namespace Hole {
     public class HoleModule : GameModule {
-        [Config, HideInInspector]
-        public int holeCount = 0;
+        public string OnHoleTypeChangedEventName => "OnHoleTypeChanged";
 
         [Config, HideInInspector]
+        public int holeCount = 1000;
+
         public Vector3[] holePositions;
 
-        private int[] m_CurrentHoleTypes;
-        
-        public void SpawnBigHole(int holeTypeId, int positionId) {
-            Game.Entity.InstantiateEntity(ResourceAddresses.HoleEntity_BigHole, holePositions[positionId]);    
-        }
-        
-        public void SpawnSmallHole(int holeTypeId, int positionId) {
-            Game.Entity.InstantiateEntity(ResourceAddresses.HoleEntity_SmallHole, holePositions[positionId]);
+        private uint[] m_CurrentHoleTypes;
+        private HoleEntity[] m_CurrentHoleEntities;
+
+        public void ChangeHoleType(int positionIndex, uint holeTypeId) {
+            if (positionIndex >= holeCount) {
+                return;
+            }
+
+            m_CurrentHoleTypes[positionIndex] = holeTypeId;
+            var onHoldeTypeChangedEventArgs = new OnHoleTypeChangedEventArgs();
+            onHoldeTypeChangedEventArgs.holeEntityId = m_CurrentHoleEntities[positionIndex].EntityId;
+            onHoldeTypeChangedEventArgs.newHoleTypeId = holeTypeId;
+            onHoldeTypeChangedEventArgs.oldHoleTypeId = m_CurrentHoleTypes[positionIndex - 1];
+            Game.Event.Invoke(OnHoleTypeChangedEventName, null, onHoldeTypeChangedEventArgs);
         }
 
         protected override void Awake() {
@@ -33,8 +41,17 @@ namespace Hole {
             base.Setup();
 
             holeCount = Game.Config.FetchConfig<int>(this, nameof(holeCount));
+            m_CurrentHoleTypes = new uint[holeCount];
+            m_CurrentHoleEntities = new HoleEntity[holeCount];
+        }
 
-            holePositions = new Vector3[holeCount];
+        public override void OnLateStart() {
+            base.OnLateStart();
+
+            for (int i = 0; i < holeCount; i++) {
+                var holeEntity = Game.Entity.InstantiateEntity<HoleEntity>(ResourceAddresses.HoleEntity_BigHole, holePositions[i]);
+                m_CurrentHoleEntities[i] = holeEntity;
+            }
         }
     }
 }
