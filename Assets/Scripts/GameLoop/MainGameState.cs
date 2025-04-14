@@ -10,9 +10,11 @@ namespace GameLoop {
         public MainGameState(StateMachine parentStateMachine, MonoBehaviour owner) : base(parentStateMachine, owner) { }
 
         public override void OnEnter() {
-            Game.Scene.LoadScene(ResourceAddresses.Scene_Game, LoadSceneMode.Single, () => {
-                Game.UI.OpenPage(ResourceAddresses.UILayout_HudUIPage);
-            });
+            Game.Scene.LoadScene(ResourceAddresses.Scene_Game, LoadSceneMode.Single, InitGame);
+        }
+
+        private void InitGame() {
+            Game.UI.OpenPage(ResourceAddresses.UILayout_PachinkoControlPage);
         }
 
         public override void OnUpdate() {

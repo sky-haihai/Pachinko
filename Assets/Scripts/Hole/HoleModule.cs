@@ -12,9 +12,12 @@ namespace Hole {
 
         [Config, HideInInspector]
         public int holeCount = 1000;
-
+            
         public Vector3[] holePositions;
 
+        //temp
+        public int[] initialTypeIds;
+        
         private uint[] m_CurrentHoleTypes;
         private HoleEntity[] m_CurrentHoleEntities;
 
@@ -24,11 +27,11 @@ namespace Hole {
             }
 
             m_CurrentHoleTypes[positionIndex] = holeTypeId;
-            var onHoldeTypeChangedEventArgs = new OnHoleTypeChangedEventArgs();
-            onHoldeTypeChangedEventArgs.holeEntityId = m_CurrentHoleEntities[positionIndex].EntityId;
-            onHoldeTypeChangedEventArgs.newHoleTypeId = holeTypeId;
-            onHoldeTypeChangedEventArgs.oldHoleTypeId = m_CurrentHoleTypes[positionIndex - 1];
-            Game.Event.Invoke(OnHoleTypeChangedEventName, null, onHoldeTypeChangedEventArgs);
+            var onHoleTypeChangedEventArgs = new OnHoleTypeChangedEventArgs();
+            onHoleTypeChangedEventArgs.holeEntityId = m_CurrentHoleEntities[positionIndex].EntityId;
+            onHoleTypeChangedEventArgs.newHoleTypeId = holeTypeId;
+            onHoleTypeChangedEventArgs.oldHoleTypeId = m_CurrentHoleTypes[positionIndex - 1];
+            Game.Event.Invoke(OnHoleTypeChangedEventName, null, onHoleTypeChangedEventArgs);
         }
 
         protected override void Awake() {
@@ -50,6 +53,7 @@ namespace Hole {
 
             for (int i = 0; i < holeCount; i++) {
                 var holeEntity = Game.Entity.InstantiateEntity<HoleEntity>(ResourceAddresses.HoleEntity_BigHole, holePositions[i]);
+                holeEntity.holeTypeId = m_CurrentHoleTypes[i];
                 m_CurrentHoleEntities[i] = holeEntity;
             }
         }

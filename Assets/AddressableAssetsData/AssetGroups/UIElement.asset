@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 7e08453d901f0234e88a1f5998e16a2e
-  m_SerializeEntries:
-  - m_GUID: d5130c47de6e62c4b920f732d8dd0f7f
-    m_Address: UIElementEntity_StatsBar
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7698bf1a807b9fc4480d55df3bf29ef2, type: 2}
   m_SchemaSet:

@@ -3346,6 +3346,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageObstacle_0_0_0
       objectReference: {fileID: 0}
+    - target: {fileID: 3997414152631680902, guid: 2904c5b144520fa438aa0e93b9cd0658,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 5b57fcc370c427042aa8e86b9da85b66,
+        type: 2}
     - target: {fileID: 4081808937426980470, guid: 2904c5b144520fa438aa0e93b9cd0658,
         type: 3}
       propertyPath: m_RootOrder
